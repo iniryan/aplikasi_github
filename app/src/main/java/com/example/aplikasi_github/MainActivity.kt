@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import kotlinx.android.synthetic.main.activity_main.*
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun tampilGithubUser(githubUser: List<GithubUser>)
     {
-        listGithubUser.layoutManager = LinearLayoutManager(this)
+        listGithubUser.layoutManager = GridLayoutManager(this, 2)
         listGithubUser.adapter = GithubUserAdapter(this, githubUser){
             val github = it
             tampilToast(applicationContext, github.login)
